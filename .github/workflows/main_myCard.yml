@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_bce7cf1fb5594b53b87ac6fcfc823f10 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_9860534aa3a34e259d602b970ceb1258 }}
+        registry: https://isha17s.github.io/card//
+        username: ${{ secrets.AzureAppService_ContainerUsername_fbcc60ac8fdd4428a9aed167c4e88ef9 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_1315a1c70e414f7cb899f03a4a448d92 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_bce7cf1fb5594b53b87ac6fcfc823f10 }}/appsvc/staticsite:${{ github.sha }}
+        tags: isha17s.github.io/card//${{ secrets.AzureAppService_ContainerUsername_fbcc60ac8fdd4428a9aed167c4e88ef9 }}/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'myCard'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f4e51121c77c4037baab98e6d3db5d6b }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_bce7cf1fb5594b53b87ac6fcfc823f10 }}/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2675ac9c2ada4deeac00e8dd7dc07947 }}
+        images: 'isha17s.github.io/card//${{ secrets.AzureAppService_ContainerUsername_fbcc60ac8fdd4428a9aed167c4e88ef9 }}/appsvc/staticsite:${{ github.sha }}'
